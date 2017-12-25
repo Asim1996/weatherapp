@@ -5,6 +5,7 @@ const request=require('request');
 const axios=require('axios');
 const config=require('./config.js');
 const hbs=require('hbs');
+const port=process.env.PORT;
 var app=express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine','hbs');
@@ -48,6 +49,6 @@ axios.get(geocodeUrl).then((response)=>{
  }
  ) 
 
-app.listen(3000,()=>{
-	console.log('Server is up on port 3000');
+app.listen(port,()=>{
+	console.log(`Server is up on port ${port}`);
 });
