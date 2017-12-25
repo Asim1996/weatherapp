@@ -5,7 +5,7 @@ const request=require('request');
 const axios=require('axios');
 const config=require('./config.js');
 const hbs=require('hbs');
-const port=process.env.PORT;
+const port=process.env.PORT||3000;
 var app=express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine','hbs');
