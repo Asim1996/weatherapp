@@ -1,6 +1,12 @@
 function loadData() {
 var address=$('#address').val();
 var geocodeUrl='https://maps.googleapis.com/maps/api/geocode/json?address='+address+'';
+    
+    $("#formaddress").html("");
+    $("#temp").html("");
+    $("#err").html("");
+
+
  $.ajax({
         type:"GET",
         url:geocodeUrl,
@@ -9,19 +15,34 @@ var geocodeUrl='https://maps.googleapis.com/maps/api/geocode/json?address='+addr
              
 
              	if(data.status==='ZERO_RESULTS'){
-					$('body').append('<div class="result"><h3>'+'Unable to find that address'+'</h3></div>')
+					$('#err').html('Unable to find that address')
 				}
              else{
             var address=data.results[0].formatted_address;
-            // $('#formaddress').html(address)
-            $('body').append('<div class="result"><h3>'+address+'</h3></div>')
             var lat=data.results[0].geometry.location.lat;
             var lng=data.results[0].geometry.location.lng;
 
-                var forecastRequestTimeout = setTimeout(function(){
-                $('body').append('<div class="result"><h3>'+"failed to get dark forecast resources"+'</h3></div>')
+            $('#formaddress').html(address);
+            
+             var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location='+lat+","+lng+'';
+             var metaUrl='https://maps.googleapis.com/maps/api/streetview/metadata?size=600x300&location='+lat+","+lng+'&fov=90&heading=235&pitch=10&key=AIzaSyBRfqOSOF5VIbKUA2NrIY0EM5CjHMLFIUo';
+             
+            $.ajax({
+                type:"GET",
+                url:metaUrl,
+            }).done(function(data){
+                console.log(data);
+                if(data.status==='OK'){
+                    $('body').append('<img class="bgimg" src="' + streetviewUrl + '">');
+                }else{
+                    $('body').css('background-color','#232323');
+                }
+            })
+            
+             var forecastRequestTimeout = setTimeout(function(){
                 
                 }, 8000);
+
             $.ajax({
                 type: "get",
                 url: "https://api.darksky.net/forecast/6b62075a7ba9b8d3dc274c35d1bd832c/"+lat+","+lng+'',
@@ -29,8 +50,7 @@ var geocodeUrl='https://maps.googleapis.com/maps/api/geocode/json?address='+addr
              }).done(function (data) {
                     console.log('Temperature:',data.currently.temperature);
                     var temp=Math.round((data.currently.temperature-32)/1.8);
-                    $('.result').append('<div class="result"><h3>'+temp+'&deg;C '+data.currently.summary+'<br><br>'+data.hourly.summary+'</h3></div>');
-                    // $('.result').append('<div class="result"><h3>'+data.hourly.summary+'</h3></div>')
+                    $('#temp').html('Temperature:'+temp+'&deg;C '+data.currently.summary+'<br><br>'+'Summary:'+data.hourly.summary);
                 clearTimeout(forecastRequestTimeout);
                 })
           }   
