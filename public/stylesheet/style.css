@@ -1,0 +1,90 @@
+    body{
+    height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-image: url('background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+        }
+   .navbar{
+        background-color: #0A0D12;
+      background: -webkit-linear-gradient(left, #0A0D12, #595451, #0A0D12); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #0A0D12, #595451, #0A0D12); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #0A0D12, #595451, #0A0D12); /* For Fx 3.6 to 15 */
+    background: linear-gradient(to right, #0A0D12, #595451, #0A0D12); /* Standard syntax (must be last) */
+    opacity: 0.7;
+}
+
+h2{
+color:white;
+font-weight: bold;
+line-height: 1.5;
+letter-spacing: 1px;
+opacity: 1.0;
+}
+   
+#form-container{
+    position: absolute;
+    top:30%;
+    left:10%;
+    z-index: 1000;
+    width:80%;
+}
+#address{ 
+border-radius: 50px 50px 50px 50px;
+height:70px;
+width:50%;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff;
+  font-family: Roboto;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #fff;
+    text-align: center;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #fff;
+   text-align: center; 
+}
+
+.close-btn{
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  cursor: pointer;
+  color: white;
+  border: 0px;
+  width: 120px;
+  height: 40px;
+  border-radius: 25px;
+  text-transform: uppercase;
+  font-weight: bold;
+  outline: none;
+  z-index: 1500;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+}
+.close-btn.active{
+  opacity: 1;
+}
+.footer{
+
+        position: absolute;
+        bottom:0;
+        width:100%;
+        background-color: #0A0D12;
+      background: -webkit-linear-gradient(left, #0A0D12, #595451, #0A0D12); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #0A0D12, #595451, #0A0D12); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #0A0D12, #595451, #0A0D12); /* For Fx 3.6 to 15 */
+    background: linear-gradient(to right, #0A0D12, #595451, #0A0D12); /* Standard syntax (must be last) */
+    opacity:0.8
+}
+p{
+    text-align: center;
+    padding:0.5em;
+}
