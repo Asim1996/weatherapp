@@ -1,0 +1,45 @@
+<% include ./partials/header %>
+<h2>Current Weather Condition</h2>
+<div class="container">	
+<div class="row">
+	<div class="col-md-8 col-12">
+		<ul class="list-group">
+  <li class="list-group-item">Your Address:<span><%=formattedaddress%></span></li>
+  <li class="list-group-item">Temperature:<span><%=temperature%></span></li>
+  <li class="list-group-item">Apparent Temperature:<span><%=apparentTemperature%></span></li>
+    <li class="list-group-item">Humidity:<span><%=humidity%></span></li>
+  <li class="list-group-item">Visibility:<span><%=visibility%></span></li>
+  <li class="list-group-item">Summary:<span><%=weatherSummary%></span></li>
+  
+  
+    </ul>
+		
+	</div>
+	<div class="col-md-4 col-12">
+	<div id="map"></div>		
+	</div>
+</div>
+</div>
+
+	
+
+<script>
+  function initMap() {
+    var lat = <%= lat %>;
+    var lng = <%= lng %>;
+    var center = {lat: lat, lng: lng }; 
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 8,
+        center: center,
+        scrollwheel: false
+    });
+    var marker = new google.maps.Marker({
+        position: center,
+        map: map
+    });
+ 
+  }
+ </script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoPo7AVWoeYECEWDsGCI1KHwP5qk5d7a8&callback=initMap"></script>
+ 
+ <% include ./partials/footer %>
