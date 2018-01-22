@@ -1,21 +1,19 @@
 <% include ./partials/header %>
-<h2>Current Weather Condition</h2>
-<div class="container">	
+<h2 >Current Weather Condition</h2>
+<div class="container mt-3">	
 <div class="row">
-	<div class="col-md-8 col-12">
+	<div class="col-md-6 col-12">
 		<ul class="list-group">
-  <li class="list-group-item">Your Address:<span><%=formattedaddress%></span></li>
-  <li class="list-group-item">Temperature:<span><%=temperature%></span></li>
-  <li class="list-group-item">Apparent Temperature:<span><%=apparentTemperature%></span></li>
-    <li class="list-group-item">Humidity:<span><%=humidity%></span></li>
-  <li class="list-group-item">Visibility:<span><%=visibility%></span></li>
-  <li class="list-group-item">Summary:<span><%=weatherSummary%></span></li>
-  
-  
-    </ul>
-		
+  <li class="list-group-item">Your Address:<span class="ml-2"><%=formattedaddress%></span></li>
+    <li class="list-group-item">Temperature:<span class="ml-2"><%=Math.round((temperature-32)/1.8)%>&#730;C</span></li>
+  <li class="list-group-item">Apparent Temperature:<span class="ml-2"><%=Math.round((temperature-32)/1.8)%>&#730;C</span></li>
+
+    <li class="list-group-item">Humidity:<span class="ml-2"><%=humidity*100%>&#37;</span></li>
+  <li class="list-group-item">Visibility:<span class="ml-2"><%=visibility%></span></li>
+  <li class="list-group-item">Summary:<span class="ml-2"><%=weatherSummary%></span></li>
+     </ul>
 	</div>
-	<div class="col-md-4 col-12">
+	<div class="col-md-6 col-12">
 	<div id="map"></div>		
 	</div>
 </div>
@@ -33,9 +31,19 @@
         center: center,
         scrollwheel: false
     });
+    var contentString = `
+      <strong><%= formattedaddress %><br/>
+      <%= lat %>,<%= lng %></strong>
+      `
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
     var marker = new google.maps.Marker({
         position: center,
         map: map
+    });
+     marker.addListener('click', function() {
+      infowindow.open(map, marker);
     });
  
   }

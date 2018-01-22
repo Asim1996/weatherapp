@@ -15,7 +15,10 @@ body{
     background: linear-gradient(to right, #0A0D12, #595451, #0A0D12); /* Standard syntax (must be last) */
     opacity: 0.7;
 }
-
+input{
+  text-align: center;
+  font-weight: 700;
+}
 h2{
 color:white;
 font-weight: bold;
@@ -158,4 +161,11 @@ p{
 #map{
   height:400px;
   width:100%;
+  border:5px solid grey;
+}
+.list-group-item{
+  font-weight: bold;
+}
+.list-group-item span{
+ color:grey; 
 }

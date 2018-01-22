@@ -31,7 +31,7 @@ app.post('/result',async(req,res)=>{
 	var temperature=weatherResponse.data.currently.temperature;
 	var	apparentTemperature=weatherResponse.data.currently.apparentTemperature;
 	var weatherSummary=weatherResponse.data.currently.summary;
-	var humidity=weatherResponse.data.currently.humidity;
+	var humidity=(weatherResponse.data.currently.humidity);
 	var visibility=weatherResponse.data.currently.visibility;
 	console.log(temperature,apparentTemperature,weatherSummary);
 	console.log(lat,lng,formattedaddress);	
