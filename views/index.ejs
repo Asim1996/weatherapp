@@ -1,8 +1,10 @@
 <% include ./partials/header %>   
+    <div id="overlay"></div>
+    <div id="mainContent">
     <nav class="navbar">
     <h2  class="mx-auto">WEATHER APP</h2>    
     </nav>
-        
+      
     <div class="container">
      <form action="/result" method="post" id="form-container">
      <div class="input-group">
@@ -11,8 +13,8 @@
        <button  class="btn btn-info close-btn" type="submit"><i class="fa fa-search fa-fw"></i> Search</button>
         </span>
     </div>
-    <button class="btnx btn-1 btn-1e" type="submit">Weather Forecast</button>
+    <button class="btnx btn-1 btn-1e" type="submit" onclick="showLoader()">Weather Forecast</button>
     </form>
-
     </div>
+</div>
 <% include ./partials/footer %>

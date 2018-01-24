@@ -1,4 +1,7 @@
 <% include ./partials/header %>
+    <div id="overlay">
+    </div>
+<div id="mainContent">
 <h2 >Current Weather Condition</h2>
 <div class="container mt-3">	
 <div class="row">
@@ -18,9 +21,7 @@
 	</div>
 </div>
 </div>
-
-	
-
+</div>
 <script>
   function initMap() {
     var lat = <%= lat %>;
@@ -45,9 +46,8 @@
      marker.addListener('click', function() {
       infowindow.open(map, marker);
     });
- 
-  }
+   }
+   
  </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoPo7AVWoeYECEWDsGCI1KHwP5qk5d7a8&callback=initMap"></script>
- 
- <% include ./partials/footer %>
+ <% include ./partials/footer %> 

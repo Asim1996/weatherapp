@@ -169,3 +169,12 @@ p{
 .list-group-item span{
  color:grey; 
 }
+#overlay{
+  height: 100vh;
+  background-image: url('weather.gif');
+  background-size: 20%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: rgb(255,231,205);
+  z-index: -4;
+}
