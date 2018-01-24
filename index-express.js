@@ -1,7 +1,7 @@
 const express=require('express');
 const axios=require('axios');
-const config=require('./config.js');
-var API=config.DarkskyApiKEY;
+
+
 var bodyParser=require('body-parser');
 var app=express();
 app.use(bodyParser.urlencoded({extended: true}));
@@ -25,7 +25,7 @@ app.post('/result',async(req,res)=>{
 	var lat=response.data.results[0].geometry.location.lat;
 	var lng=response.data.results[0].geometry.location.lng;
 	var formattedaddress=response.data.results[0].formatted_address;
-	var weatherUrl=`https://api.darksky.net/forecast/${API}/${lat},${lng}`;
+	var weatherUrl=`https://api.darksky.net/forecast/6b62075a7ba9b8d3dc274c35d1bd832c/${lat},${lng}`;
 	console.log(weatherUrl);
 	var weatherResponse=await axios.get(weatherUrl);
 	var temperature=weatherResponse.data.currently.temperature;
