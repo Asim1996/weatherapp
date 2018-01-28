@@ -10,11 +10,21 @@
      <div class="input-group">
   <input type="text" class="form-control" name="location" id="address"  placeholder="Enter Your Location" required>
       <span class="input-group-btn">
-       <button  class="btn btn-info close-btn" type="submit"><i class="fa fa-search fa-fw"></i> Search</button>
+       <button  class="btn btn-info close-btn" type="submit" onclick="showLoader()"><i class="fa fa-search fa-fw"></i> Search</button>
         </span>
+      
     </div>
+    <div class="mx-auto" style="width: 300px;">
     <button class="btnx btn-1 btn-1e" type="submit" onclick="showLoader()">Weather Forecast</button>
+    </div>
     </form>
     </div>
 </div>
+<footer class="footer">
+      
+        <p class="text-muted ">Weather App 2017 | Created by:<a href="https://github.com/Asim1996/colorgame">Asim</a></p>
+          
+        </footer>
+        <script async type="text/javascript" src="../scriptfile/script.js"></script>
+
 <% include ./partials/footer %>

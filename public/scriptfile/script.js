@@ -1,11 +1,13 @@
-$(function() {
-$("#address").focus(function(){
-$(".close-btn").addClass("active");
-});
-$("#address").focusout(function(){
-  $(".close-btn").removeClass("active");
-});
-});
+function showMap(){
+
+  var map = document.getElementById('map');
+  var beforMap = document.getElementById('beforeMap');
+  var mapTrigger = document.getElementById('mapTrigger');
+  map.style.display = 'flex';
+  beforeMap.style.display = 'none';
+  initMap();
+  mapTrigger.style.display = 'none';
+}
 function showLoader() {
   var overlay = document.getElementById("overlay");
   var mainContent = document.getElementById("mainContent");

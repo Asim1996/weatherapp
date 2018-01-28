@@ -1,4 +1,5 @@
 <% include ./partials/header %>
+
     <div id="overlay">
     </div>
 <div id="mainContent">
@@ -8,27 +9,166 @@
 	<div class="col-md-6 col-12">
 		<ul class="list-group">
   <li class="list-group-item">Your Address:<span class="ml-2"><%=formattedaddress%></span></li>
-    <li class="list-group-item">Temperature:<span class="ml-2"><%=Math.round((temperature-32)/1.8)%>&#730;C</span></li>
+
+  <li class="list-group-item">Time:<span class="ml-2"><%=new Date(time*1000).toDateString()%></span></li>
+<li class="list-group-item">Temperature:<span class="ml-2"><%=Math.round((temperature-32)/1.8)%>&#730;C</span></li>
   <li class="list-group-item">Apparent Temperature:<span class="ml-2"><%=Math.round((temperature-32)/1.8)%>&#730;C</span></li>
 
     <li class="list-group-item">Humidity:<span class="ml-2"><%=humidity*100%>&#37;</span></li>
   <li class="list-group-item">Visibility:<span class="ml-2"><%=visibility%></span></li>
   <li class="list-group-item">Summary:<span class="ml-2"><%=weatherSummary%></span></li>
      </ul>
+	
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Show Daily Forecast
+</button>
+<a href="/"><button class="btn btn-primary">Go back</button></a>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Daily Weather Report</h5>
+       
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <div class="container-fluid">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner row w-100 mx-auto">
+      <div class="carousel-item col-md-4 active">
+        <div class="card">
+          
+          <img class="card-img-top img-fluid" src="../stylesheet/img/<%=daily.data[0].icon%>.jpg"  alt="<%=daily.data[0].icon%>">
+          <div class="card-body">
+            <h4 class="card-title"><%=new Date(daily.data[0].time*1000).toDateString()%></h4>
+            <p class="card-text"><%=daily.data[0].summary%></p>
+            <p class="card-text">Maximum Temperature:<%=Math.round((daily.data[0].temperatureMax-32)/1.8)%>&#730;C%></p>
+            <p class="card-text">Minimum Temperature:<%=Math.round((daily.data[0].temperatureMin-32)/1.8)%>&#730;C%></p>
+            <p class="card-text">Humidity:<%=daily.data[0].humidity*100%>&#37;</p>
+            
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item col-md-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="../stylesheet/img/<%=daily.data[1].icon%>.jpg" alt="<%=daily.data[1].icon%>">
+          <div class="card-body">
+            <h4 class="card-title"><%=new Date(daily.data[1].time*1000).toDateString()%></h4>
+            <p class="card-text"><%=daily.data[1].summary%></p>
+            <p class="card-text">Maximum Temperature:<%=Math.round((daily.data[1].temperatureMax-32)/1.8)%>&#730;C%></p>
+            <p class="card-text">Minimum Temperature:<%=Math.round((daily.data[1].temperatureMin-32)/1.8)%>&#730;C%></p>
+            <p class="card-text">Humidity:<%=daily.data[1].humidity*100%>&#37;</p>
+         </div>
+        </div>
+      </div>
+      <div class="carousel-item col-md-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="../stylesheet/img/<%=daily.data[2].icon%>.jpg" alt="<%=daily.data[2].icon%>">
+          <div class="card-body">
+             <h4 class="card-title"><%=new Date(daily.data[2].time*1000).toDateString()%></h4>
+            <p class="card-text"><%=daily.data[2].summary%></p>
+            <p class="card-text">Maximum Temperature:<%=Math.round((daily.data[2].temperatureMax-32)/1.8)%>&#730;C%></p>
+             <p class="card-text">Minimum Temperature:<%=Math.round((daily.data[2].temperatureMin-32)/1.8)%>&#730;C%></p>
+
+            <p class="card-text">Humidity:<%=daily.data[2].humidity*100%>&#37;</p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item col-md-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="../stylesheet/img/<%=daily.data[3].icon%>.jpg" alt="<%=daily.data[3].icon%>">
+          <div class="card-body">
+             <h4 class="card-title"><%=new Date(daily.data[3].time*1000).toDateString()%></h4>
+            <p class="card-text"><%=daily.data[3].summary%></p>
+            <p class="card-text">Maximum Temperature:<%=Math.round((daily.data[3].temperatureMax-32)/1.8)%>&#730;C%></p>
+            <p class="card-text">Minimum Temperature:<%=Math.round((daily.data[3].temperatureMin-32)/1.8)%>&#730;C%></p>
+            <p class="card-text">Humidity:<%=daily.data[3].humidity*100%>&#37;</p>
+            
+            </div>
+        </div>
+      </div>
+      <div class="carousel-item col-md-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="../stylesheet/img/<%=daily.data[4].icon%>.jpg" alt="<%=daily.data[4].icon%>">
+          <div class="card-body">
+             <h4 class="card-title"><%=new Date(daily.data[4].time*1000).toDateString()%></h4>
+            <p class="card-text"><%=daily.data[4].summary%></p>
+            <p class="card-text">Maximum Temperature<%=Math.round((daily.data[4].temperatureMax-32)/1.8)%>&#730;C%></p>
+            <p class="card-text">Minimum Temperature<%=Math.round((daily.data[4].temperatureMin-32)/1.8)%>&#730;C%></p>
+            <p class="card-text">Humidity<%=daily.data[4].humidity%></p>
+            
+            </div>
+        </div>
+      </div>
+      <div class="carousel-item col-md-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="../stylesheet/img/<%=daily.data[5].icon%>.jpg" alt="<%=daily.data[5].icon%>">
+          <div class="card-body">
+           <h4 class="card-title"><%=new Date(daily.data[5].time*1000).toDateString()%></h4>
+            <p class="card-text"><%=daily.data[5].summary%></p>
+            <p class="card-text">Maximum Temperature:<%=Math.round((daily.data[5].temperatureMax-32)/1.8)%>&#730;C%></p>
+            <p class="card-text">Minimum Temperature:<%=Math.round((daily.data[5].temperatureMin-32)/1.8)%>&#730;C%></p>
+            <p class="card-text">Humidity:<%=daily.data[5].humidity%></p>
+            
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item col-md-4">
+        <div class="card">
+          <img class="card-img-top img-fluid" src="../stylesheet/img/<%=daily.data[6].icon%>.jpg" alt="<%=daily.data[6].icon%>">
+          <div class="card-body">
+            <h4 class="card-title"><%=new Date(daily.data[6].time*1000).toDateString()%></h4>
+            <p class="card-text"><%=daily.data[6].summary%></p>
+            <p class="card-text">Maximum Temperature:<%=Math.round((daily.data[6].temperatureMax-32)/1.8)%>&#730;C%></p>
+            <p class="card-text">Minimum Temperature:<%=Math.round((daily.data[6].temperatureMin-32)/1.8)%>&#730;C%></p>
+            <p class="card-text">Humidity:<%=daily.data[6].humidity%></p>
+            
+
+            </div>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       </div>
+    </div>
+  </div>
+</div>
+</div>
+  
+     
+     <div class="col-md-6 col-12">
+          <div id="beforeMap">
+            <a id="mapTrigger" onclick="showMap()"><h1>SHOW MAP</h1></a>
+          </div>
+          <div id="map"></div>
+
+        </div>
+      </div>
 	</div>
-	<div class="col-md-6 col-12">
-	<div id="map"></div>		
-	</div>
 </div>
-</div>
-</div>
+  
 <script>
+  
   function initMap() {
     var lat = <%= lat %>;
     var lng = <%= lng %>;
     var center = {lat: lat, lng: lng }; 
     var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 8,
+        zoom: 14,
         center: center,
         scrollwheel: false
     });
@@ -47,7 +187,7 @@
       infowindow.open(map, marker);
     });
    }
-   
  </script>
+<script async type="text/javascript" src="../scriptfile/script.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoPo7AVWoeYECEWDsGCI1KHwP5qk5d7a8&callback=initMap"></script>
- <% include ./partials/footer %> 
+<% include ./partials/footer %>
