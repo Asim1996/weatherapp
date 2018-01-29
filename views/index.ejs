@@ -1,11 +1,10 @@
 <% include ./partials/header %>   
     <div id="overlay"></div>
-    <div id="mainContent">
-    <nav class="navbar">
+        <div id="mainContent">
+      <nav class="navbar">
     <h2  class="mx-auto">WEATHER APP</h2>    
     </nav>
-      
-    <div class="container">
+     <div class="container">
      <form action="/result" method="post" id="form-container">
      <div class="input-group">
   <input type="text" class="form-control" name="location" id="address"  placeholder="Enter Your Location" required>
@@ -19,7 +18,16 @@
     </div>
     </form>
     </div>
+    <ul class="slideshow">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
 </div>
+
 <footer class="footer">
       
         <p class="text-muted ">Weather App 2017 | Created by:<a href="https://github.com/Asim1996/colorgame">Asim</a></p>
