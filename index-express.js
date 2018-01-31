@@ -16,9 +16,7 @@ app.post('/result',async(req,res)=>{
 	try{
 	var encodedAddress=encodeURIComponent(address);
 	var geocodeUrl=`https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=AIzaSyAoPo7AVWoeYECEWDsGCI1KHwP5qk5d7a8`;
-	console.log(geocodeUrl);
-	
-		var response=await axios.get(geocodeUrl);
+	var response=await axios.get(geocodeUrl);
 	if(response.data.status==='ZERO_RESULTS'){
 			throw new Error('Unable to find that address')
 	}else{
@@ -34,8 +32,6 @@ app.post('/result',async(req,res)=>{
 	var visibility=weatherResponse.data.currently.visibility;
 	var time=weatherResponse.data.currently.time;
 	var daily=weatherResponse.data.daily;
-	console.log(daily);
-	console.log(visibility)
 	res.render('result.ejs',{
 		formattedaddress:formattedaddress,
 		lat:lat,

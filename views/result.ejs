@@ -4,7 +4,7 @@
     </div>
 <div id="mainContent">
 <h2 >Current Weather Condition</h2>
-<div class="container mt-3">	
+<div class="container mt-5">	
 <div class="row">
 	<div class="col-md-6 col-12">
 		<ul class="list-group">
@@ -19,10 +19,11 @@
   <li class="list-group-item">Summary:<span class="ml-2"><%=weatherSummary%></span></li>
      </ul>
 	
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+    <button type="button" class="btn btn-lg btn-info " data-toggle="modal" data-target="#exampleModalCenter">
   Show Daily Forecast
 </button>
-<a href="/"><button class="btn btn-primary">Go back</button></a>
+
+    <a class="d-inline-block mt-4" href="/"><button class="btn btn-lg btn-info">Go back</button></a>
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -46,7 +47,7 @@
             <p class="card-text"><%=daily.data[0].summary%></p>
             <p class="card-text">Maximum Temperature:<%=Math.round((daily.data[0].temperatureMax-32)/1.8)%>&#730;C%></p>
             <p class="card-text">Minimum Temperature:<%=Math.round((daily.data[0].temperatureMin-32)/1.8)%>&#730;C%></p>
-            <p class="card-text">Humidity:<%=daily.data[0].humidity*100%>&#37;</p>
+            <p class="card-text">Humidity:<%=(daily.data[0].humidity*100).toFixed(2)%>&#37;</p>
             
           </div>
         </div>
@@ -59,7 +60,7 @@
             <p class="card-text"><%=daily.data[1].summary%></p>
             <p class="card-text">Maximum Temperature:<%=Math.round((daily.data[1].temperatureMax-32)/1.8)%>&#730;C%></p>
             <p class="card-text">Minimum Temperature:<%=Math.round((daily.data[1].temperatureMin-32)/1.8)%>&#730;C%></p>
-            <p class="card-text">Humidity:<%=daily.data[1].humidity*100%>&#37;</p>
+            <p class="card-text">Humidity:<%=(daily.data[1].humidity*100).toFixed(2)%>&#37;</p>
          </div>
         </div>
       </div>
@@ -72,7 +73,7 @@
             <p class="card-text">Maximum Temperature:<%=Math.round((daily.data[2].temperatureMax-32)/1.8)%>&#730;C%></p>
              <p class="card-text">Minimum Temperature:<%=Math.round((daily.data[2].temperatureMin-32)/1.8)%>&#730;C%></p>
 
-            <p class="card-text">Humidity:<%=daily.data[2].humidity*100%>&#37;</p>
+            <p class="card-text">Humidity:<%=(daily.data[2].humidity*100).toFixed(2)%>&#37;</p>
           </div>
         </div>
       </div>
@@ -84,7 +85,7 @@
             <p class="card-text"><%=daily.data[3].summary%></p>
             <p class="card-text">Maximum Temperature:<%=Math.round((daily.data[3].temperatureMax-32)/1.8)%>&#730;C%></p>
             <p class="card-text">Minimum Temperature:<%=Math.round((daily.data[3].temperatureMin-32)/1.8)%>&#730;C%></p>
-            <p class="card-text">Humidity:<%=daily.data[3].humidity*100%>&#37;</p>
+            <p class="card-text">Humidity:<%=(daily.data[3].humidity*100).toFixed(2)%>&#37;</p>
             
             </div>
         </div>
@@ -97,7 +98,7 @@
             <p class="card-text"><%=daily.data[4].summary%></p>
             <p class="card-text">Maximum Temperature<%=Math.round((daily.data[4].temperatureMax-32)/1.8)%>&#730;C%></p>
             <p class="card-text">Minimum Temperature<%=Math.round((daily.data[4].temperatureMin-32)/1.8)%>&#730;C%></p>
-            <p class="card-text">Humidity<%=daily.data[4].humidity%></p>
+            <p class="card-text">Humidity:<%=(daily.data[4].humidity*100).toFixed(2)%>&#37;</p>
             
             </div>
         </div>
@@ -110,7 +111,7 @@
             <p class="card-text"><%=daily.data[5].summary%></p>
             <p class="card-text">Maximum Temperature:<%=Math.round((daily.data[5].temperatureMax-32)/1.8)%>&#730;C%></p>
             <p class="card-text">Minimum Temperature:<%=Math.round((daily.data[5].temperatureMin-32)/1.8)%>&#730;C%></p>
-            <p class="card-text">Humidity:<%=daily.data[5].humidity%></p>
+            <p class="card-text">Humidity:<%=(daily.data[5].humidity*100).toFixed(2)%>&#37;</p>
             
           </div>
         </div>
@@ -123,7 +124,7 @@
             <p class="card-text"><%=daily.data[6].summary%></p>
             <p class="card-text">Maximum Temperature:<%=Math.round((daily.data[6].temperatureMax-32)/1.8)%>&#730;C%></p>
             <p class="card-text">Minimum Temperature:<%=Math.round((daily.data[6].temperatureMin-32)/1.8)%>&#730;C%></p>
-            <p class="card-text">Humidity:<%=daily.data[6].humidity%></p>
+            <p class="card-text">Humidity:<%=(daily.data[6].humidity*100).toFixed(2)%>&#37;</p>
             
 
             </div>
@@ -150,9 +151,9 @@
 </div>
   
      
-     <div class="col-md-6 col-12">
+     <div class="col-md-6 col-12 mt-2">
           <div id="beforeMap">
-            <a id="mapTrigger" onclick="showMap()"><h1>SHOW MAP</h1></a>
+            <a id="mapTrigger" onclick="showMap()"><h3>SHOW MAP</h3></a>
           </div>
           <div id="map"></div>
 
