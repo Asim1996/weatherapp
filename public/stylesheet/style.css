@@ -1,9 +1,12 @@
+body{
+  font-family: 'Lobster', cursive;
+  font-size: 20px;
+}
 #mainContent{
     height: 100%;
   width: 100%;
   overflow: hidden;
         }
-   
 .slideshow { 
   position: fixed;
   width: 100%;
@@ -80,17 +83,22 @@
     background: linear-gradient(to right, #0A0D12, #595451, #0A0D12); /* Standard syntax (must be last) */
     opacity: 0.7;
 }
+.card-img-top{
+height:200px;
+}
 input{
   text-align: center;
   font-weight: 700;
 }
-h2{
+h1{
 color:white;
+font-family: 'Berkshire Swash', cursive;
 font-weight: bold;
 line-height: 1.5;
 letter-spacing: 1px;
 opacity: 1.0;
 text-align: center;
+
 }
    
 #form-container{
@@ -289,7 +297,10 @@ p{
   height: 130%;
   opacity: 1;
 }
-
+h3{
+  font-family: 'Lobster', cursive;
+  text-align: center;
+}
 #beforeMap{
   height:350px;
   background: #00c6ff;  /* fallback for old browsers */
@@ -297,13 +308,7 @@ background: -webkit-linear-gradient(to right, #0072ff, #00c6ff);  /* Chrome 10-2
 background: linear-gradient(to right, #0072ff, #00c6ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
  
   display: flex;
-  text-align: center;
-  align-items:center;
   background-color: rgba(235,232,222,0.5);
-/*    background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-*/  
 border-radius: 8px 8px 8px 8px;
   -moz-border-radius: 8px 8px 8px 8px;
   -webkit-border-radius: 8px 8px 8px 8px;

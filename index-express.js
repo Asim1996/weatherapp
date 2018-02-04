@@ -1,9 +1,9 @@
+var compression = require('compression');
 const express=require('express');
 const axios=require('axios');
-
-
 var bodyParser=require('body-parser');
 var app=express();
+app.use(compression())
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine","ejs");
 app.use(express.static('public'))
@@ -47,12 +47,10 @@ app.post('/result',async(req,res)=>{
 		});
 	}	
 	}catch(e){
-		alert('Unable to get that address')
 		res.redirect('/');
 	}
 	
 })
-
 app.listen(port,()=>{
 	console.log(`Server is up on port ${port}`);
 });

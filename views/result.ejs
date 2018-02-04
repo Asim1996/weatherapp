@@ -3,7 +3,7 @@
     <div id="overlay">
     </div>
 <div id="mainContent">
-<h2 >Current Weather Condition</h2>
+<h1 >Current Weather Condition</h1>
 <div class="container mt-5">	
 <div class="row">
 	<div class="col-md-6 col-12">
@@ -14,7 +14,7 @@
 <li class="list-group-item">Temperature:<span class="ml-2"><%=Math.round((temperature-32)/1.8)%>&#730;C</span></li>
   <li class="list-group-item">Apparent Temperature:<span class="ml-2"><%=Math.round((temperature-32)/1.8)%>&#730;C</span></li>
 
-    <li class="list-group-item">Humidity:<span class="ml-2"><%=humidity*100%>&#37;</span></li>
+    <li class="list-group-item">Humidity:<span class="ml-2"><%=(humidity*100).toFixed(2)%>&#37;</span></li>
   <li class="list-group-item">Visibility:<span class="ml-2"><%=visibility%></span></li>
   <li class="list-group-item">Summary:<span class="ml-2"><%=weatherSummary%></span></li>
      </ul>
@@ -28,7 +28,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Daily Weather Report</h5>
+        <h3 class="modal-title" id="exampleModalLongTitle">Daily Weather Report</h3>
        
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -96,8 +96,8 @@
           <div class="card-body">
              <h4 class="card-title"><%=new Date(daily.data[4].time*1000).toDateString()%></h4>
             <p class="card-text"><%=daily.data[4].summary%></p>
-            <p class="card-text">Maximum Temperature<%=Math.round((daily.data[4].temperatureMax-32)/1.8)%>&#730;C%></p>
-            <p class="card-text">Minimum Temperature<%=Math.round((daily.data[4].temperatureMin-32)/1.8)%>&#730;C%></p>
+            <p class="card-text">Maximum Temperature:<%=Math.round((daily.data[4].temperatureMax-32)/1.8)%>&#730;C%></p>
+            <p class="card-text">Minimum Temperature:<%=Math.round((daily.data[4].temperatureMin-32)/1.8)%>&#730;C%></p>
             <p class="card-text">Humidity:<%=(daily.data[4].humidity*100).toFixed(2)%>&#37;</p>
             
             </div>
@@ -197,6 +197,5 @@
     });
    }
  </script>
-<script async type="text/javascript" src="../scriptfile/script.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoPo7AVWoeYECEWDsGCI1KHwP5qk5d7a8&callback=initMap"></script>
 <% include ./partials/footer %>
